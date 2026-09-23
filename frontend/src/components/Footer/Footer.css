@@ -1,0 +1,90 @@
+/* src/components/Footer/Footer.css */
+
+.footer {
+  position: relative;
+  background:
+    radial-gradient(circle at top left, rgba(201, 169, 110, 0.08), transparent 32%),
+    linear-gradient(180deg, var(--bg-card), var(--bg));
+  border-top: 1px solid var(--border);
+  padding: 28px 48px 20px;
+  color: var(--text);
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(201,169,110,0.03) 0, rgba(201,169,110,0.03) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(-45deg, rgba(201,169,110,0.03) 0, rgba(201,169,110,0.03) 1px, transparent 1px, transparent 24px);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.fi {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.fl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.03em;
+}
+
+.fl span {
+  color: var(--gold);
+}
+
+.flr {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.flr a {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.flr a:hover {
+  color: var(--gold);
+}
+
+.fc {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  font-size: 0.62rem;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .footer {
+    padding: 24px 20px 16px;
+  }
+
+  .fi {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flr {
+    justify-content: center;
+  }
+}

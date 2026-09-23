@@ -1,0 +1,84 @@
+/* src/styles/variables.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+  --bg: #f6f0e6;
+  --bg-dk: #1f3934;
+  --bg-lt: #ede4d6;
+  --bg-card: #f7efe1;
+  --border: rgba(24, 19, 16, 0.1);
+  --gold: #c9a96e;
+  --gold-lt: #e3c07b;
+  --mist: #8b7d6e;
+  --warm-white: #f8f2ea;
+  --text: rgba(24, 19, 16, 0.9);
+  --text-dim: rgba(24, 19, 16, 0.68);
+  --text-faint: rgba(24, 19, 16, 0.42);
+  --danger: #a93e34;
+  --nav-bg: #1f3934;
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --nav-link: rgba(248, 242, 233, 0.68);
+  --nav-cta-border: rgba(201, 169, 110, 0.52);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #121413;
+  --bg-dk: #16251f;
+  --bg-lt: #1d2a24;
+  --bg-card: #1b201d;
+  --border: rgba(118, 168, 136, 0.16);
+  --gold: #5da06f;
+  --gold-lt: #7fc392;
+  --mist: #86a495;
+  --warm-white: #f5f2ea;
+  --text: rgba(245, 242, 234, 0.94);
+  --text-dim: rgba(245, 242, 234, 0.72);
+  --text-faint: rgba(245, 242, 234, 0.42);
+  --danger: #c06b61;
+  --nav-bg: #0c0f0d;
+  --nav-border: rgba(93, 160, 111, 0.08);
+  --nav-link: rgba(245, 242, 234, 0.7);
+  --nav-cta-border: rgba(93, 160, 111, 0.28);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at top left, rgba(93, 160, 111, 0.08), transparent 28%),
+    radial-gradient(circle at top right, rgba(93, 160, 111, 0.05), transparent 22%),
+    var(--bg);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.gold-placeholder::placeholder {
+  color: var(--gold) !important;
+  opacity: 1;
+}

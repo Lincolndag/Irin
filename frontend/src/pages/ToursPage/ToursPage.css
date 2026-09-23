@@ -1,0 +1,299 @@
+/* src/pages/ToursPage/ToursPage.css */
+
+/* Classic (light): warm hero — dark mode overrides below */
+.page-hero {
+  --hero-image: none;
+  padding: 104px 48px 42px;
+  background-color: transparent;
+  background-image: var(--hero-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::after {
+  content: none;
+}
+
+:root[data-theme='dark'] .page-hero {
+  background-color: var(--bg-dk);
+  /* Slight dark overlay remains for dark mode */
+  background-image:
+    linear-gradient(180deg, rgba(14, 15, 16, 0.26), rgba(14, 15, 16, 0.84)),
+    radial-gradient(circle at top left, rgba(93, 160, 111, 0.14), transparent 38%),
+    var(--hero-image);
+}
+
+:root[data-theme='dark'] .page-hero h1 {
+  color: var(--warm-white);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.1s ease forwards;
+}
+
+.eyebrow span {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.eyeline {
+  width: 36px;
+  height: 3px;
+  background: linear-gradient(90deg, rgba(201, 169, 110, 0.25), var(--gold) 45%, rgba(201, 169, 110, 0.25));
+  box-shadow:
+    0 0 0 1px rgba(201, 169, 110, 0.12),
+    0 0 12px rgba(201, 169, 110, 0.08);
+}
+
+:root:not([data-theme='dark']) .eyeline {
+  background: linear-gradient(90deg, rgba(201, 169, 110, 0.18), rgba(201, 169, 110, 1) 50%, rgba(201, 169, 110, 0.18));
+  box-shadow:
+    0 0 0 1px rgba(201, 169, 110, 0.22),
+    0 0 14px rgba(201, 169, 110, 0.16);
+}
+
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.05;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.2s ease forwards;
+}
+
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.page-hero p {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  max-width: 44ch;
+  line-height: 1.8;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.35s ease forwards;
+}
+
+.tours-main {
+  padding: 0 48px 72px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Tours toolbar - full width of the page, matching the hero section's side padding */
+.tours-toolbar {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding: 20px 48px;
+  border: 1px solid var(--border);
+  background: #1f3934; /* #0c0f0d greenish/dark green */
+  width: 100vw;
+  max-width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+}
+
+.tours-search input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tours-search input::placeholder {
+  color: var(--text-faint);
+}
+
+.tours-search input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 110, 0.12);
+}
+
+.tours-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.tours-control {
+  display: grid;
+  gap: 6px;
+}
+
+.tours-control span {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.tours-control select {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.84rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.tours-control select:focus {
+  border-color: var(--gold);
+}
+
+.tours-toolbar-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.tours-count {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.tours-clear {
+  border: none;
+  background: none;
+  padding: 0;
+  color: var(--gold);
+  font-size: 0.82rem;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tours-clear.inline {
+  display: inline;
+}
+
+.tours-loading,
+.tours-error,
+.tours-empty {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-dim);
+  padding: 18px 20px;
+  font-size: 0.85rem;
+}
+
+.tours-error {
+  color: var(--danger);
+}
+
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.pagi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 36px;
+}
+
+.pbtn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  transition: all 0.3s;
+}
+
+.pbtn:hover,
+.pbtn.on {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-dk);
+}
+
+@media (max-width: 900px) {
+  .page-hero {
+    padding: 88px 20px 32px;
+  }
+
+  .tours-main {
+    padding: 0 20px 60px;
+  }
+
+  .tours-toolbar {
+    padding: 16px 20px;
+  }
+
+  .tours-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tours-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 540px) {
+  .page-hero h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .tours-toolbar {
+    padding: 12px 8px;
+  }
+
+  .tours-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .tours-grid {
+    grid-template-columns: 1fr;
+  }
+}

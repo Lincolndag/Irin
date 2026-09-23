@@ -1,0 +1,45 @@
+/* src/components/AuthLayout/AuthLayout.css */
+
+.auth-root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* LEFT VISUAL */
+.auth-vis {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-dk);
+}
+.avis-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(201,169,110,0.04) 0, rgba(201,169,110,0.04) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(201,169,110,0.04) 0, rgba(201,169,110,0.04) 1px, transparent 1px, transparent 20px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* RIGHT FORM PANEL */
+.auth-panel {
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 52px 48px;
+  overflow-y: auto;
+}
+.auth-inner {
+  max-width: 390px;
+  width: 100%;
+}
+
+/* RESPONSIVE */
+@media (max-width: 800px) {
+  .auth-root { grid-template-columns: 1fr; }
+  .auth-vis { display: none; }
+  .auth-panel { padding: 40px 24px; padding-top: 60px; justify-content: flex-start; }
+  .auth-inner { max-width: 100%; }
+}

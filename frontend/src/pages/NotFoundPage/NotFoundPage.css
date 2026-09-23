@@ -1,0 +1,11 @@
+.nf-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+
+.nf-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--gold);
+}

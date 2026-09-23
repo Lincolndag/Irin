@@ -1,0 +1,146 @@
+/* src/pages/SignupPage/SignupPage.css */
+
+.avis-inner {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background:
+    linear-gradient(160deg, rgba(24,19,16,0.5) 0%, rgba(24,19,16,0.92) 100%),
+    url('https://commons.wikimedia.org/wiki/Special:FilePath/LEKKI%20CONSERVATION%20CENTRE.jpg') center / cover;
+  animation: zbg 14s ease-out forwards;
+}
+@keyframes zbg {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1); }
+}
+
+.vis-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem; font-weight: 600;
+  color: var(--warm-white);
+  letter-spacing: 0.06em; text-decoration: none;
+}
+.vis-logo span { color: var(--gold); }
+.vis-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.vis-tag {
+  font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.vis-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+
+.vis-head {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 300;
+  color: var(--warm-white); line-height: 1.1;
+}
+.vis-head em { font-style: italic; color: var(--gold); }
+
+.vis-sub {
+  margin-top: 14px; font-size: 0.85rem; line-height: 1.8;
+  color: var(--text-dim); max-width: 320px; font-weight: 300;
+}
+
+.vis-stats { display: flex; gap: 28px; margin-top: 32px; }
+.vs-num   { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; color: var(--warm-white); line-height: 1; }
+.vs-label { font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-faint); margin-top: 3px; }
+
+.vis-testi {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(8px);
+  border-left: 2px solid rgba(201,169,110,0.5);
+  padding: 16px 18px;
+}
+.vt-text   { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; color: rgba(253,250,245,0.75); line-height: 1.6; }
+.vt-author { font-size: 0.68rem; color: var(--text-faint); margin-top: 7px; }
+
+.auth-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem; font-weight: 300;
+  color: var(--warm-white); line-height: 1.1;
+  margin-bottom: 7px;
+  opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards;
+}
+.auth-h em { font-style: italic; color: var(--gold); }
+
+.auth-sub {
+  font-size: 0.82rem; color: var(--text-faint);
+  margin-bottom: 28px; line-height: 1.6;
+  opacity: 0; animation: fadeUp 0.7s 0.2s ease forwards;
+}
+.auth-sub a { color: var(--gold); text-decoration: none; font-weight: 500; }
+
+.signup-form {
+  display: flex; flex-direction: column; gap: 16px;
+  opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards;
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.fg   { display: flex; flex-direction: column; gap: 5px; }
+.flabel {
+  font-size: 0.6rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--mist); font-weight: 500;
+}
+.finput {
+  padding: 11px 13px;
+  background: var(--bg-card); border: 1px solid var(--border);
+  outline: none;
+  font-family: 'Outfit', sans-serif; font-size: 0.88rem; color: var(--text);
+  transition: border-color 0.3s; width: 100%;
+}
+.finput:focus { border-color: rgba(201,169,110,0.45); }
+.finput::placeholder { color: var(--text-faint); }
+
+.pw-wrap  { position: relative; }
+.pw-wrap .finput { padding-right: 40px; }
+.ptoggle {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; color: var(--text-faint);
+  transition: color 0.3s; line-height: 0;
+}
+.ptoggle:hover { color: var(--gold); }
+
+.sbars { display: flex; gap: 3px; margin-top: 5px; }
+.sbar  { height: 2px; flex: 1; background: var(--border); transition: background 0.3s; }
+.sbar.weak   { background: #c0392b; }
+.sbar.med    { background: var(--gold); }
+.sbar.strong { background: #4CAF50; }
+.stext { font-size: 0.6rem; color: var(--text-faint); margin-top: 3px; }
+
+.terms-row { display: flex; align-items: flex-start; gap: 9px; }
+.tcheck    { width: 15px; height: 15px; accent-color: var(--gold); flex-shrink: 0; margin-top: 2px; cursor: pointer; }
+.ttext     { font-size: 0.76rem; line-height: 1.5; color: var(--text-dim); }
+.ttext a   { color: var(--gold); text-decoration: none; }
+
+.btn-main {
+  width: 100%; padding: 13px; background: var(--gold); border: none; cursor: pointer;
+  font-family: 'Outfit', sans-serif; font-size: 0.76rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--bg-dk);
+  transition: opacity 0.3s; margin-top: 2px;
+}
+.btn-main:hover { opacity: 0.88; }
+
+.or-div  { display: flex; align-items: center; gap: 12px; }
+.or-line { flex: 1; height: 1px; background: var(--border); }
+.or-text { font-size: 0.68rem; color: var(--text-faint); }
+
+.btn-google {
+  width: 100%; padding: 11px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 500;
+  color: var(--text-dim);
+  display: flex; align-items: center; justify-content: center; gap: 9px;
+  transition: border-color 0.3s, color 0.3s;
+}
+.btn-google:hover { border-color: rgba(201,169,110,0.35); color: var(--text); }
+
+@media (max-width: 440px) {
+  .form-row { grid-template-columns: 1fr; }
+}

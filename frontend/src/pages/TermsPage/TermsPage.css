@@ -1,0 +1,14 @@
+.legal-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+}
+
+.legal-card ol {
+  padding-left: 18px;
+}
+
+.legal-card li {
+  margin-bottom: 10px;
+  line-height: 1.8;
+}

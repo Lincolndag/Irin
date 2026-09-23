@@ -1,0 +1,211 @@
+/* src/components/Navbar/Navbar.css */
+
+/*
+  NOTE: The navbar background color is set via the CSS variable --nav-bg.
+  To know the specific rgb value, check where --nav-bg is defined.
+  For example, it may look like this:
+
+    :root {
+      --nav-bg: rgba(19, 25, 21, 0.92);  <-- Example only!
+    }
+
+  If you are using the default (light) theme from global styles, 
+  as per the demo, --nav-bg is typically:
+
+    --nav-bg: rgba(19, 25, 21, 0.92);
+
+  So the RGB is: rgb(19, 25, 21) and opacity 0.92 (for a semi-translucent dark navbar background).
+*/
+
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 48px;
+  background: var(--nav-bg); /* See note above for RGB value */
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--warm-white);
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--nav-link);
+  transition: color 0.3s;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-login {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--nav-link);
+  transition: color 0.3s;
+}
+.nav-login:hover {
+  color: var(--gold);
+}
+
+.nav-cta {
+  background: none;
+  padding: 8px 18px;
+  border: 1px solid var(--nav-cta-border);
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold);
+  transition: all 0.3s;
+}
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--bg-dk);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 23px;
+  height: 2px;
+  background: var(--nav-link);
+}
+
+:root:not([data-theme='dark']) .hamburger span {
+  background: rgba(248, 242, 234, 0.92);
+  box-shadow: 0 0 0 1px rgba(31, 57, 52, 0.18);
+}
+
+:root:not([data-theme='dark']) .navbar {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Mobile menu */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--nav-bg);
+  z-index: 200;
+  flex-direction: column;
+  padding: 56px 32px 32px;
+  gap: 4px;
+}
+.mobile-menu.open { display: flex; }
+
+.mm-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dim);
+  line-height: 0;
+}
+
+.mm-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--warm-white);
+  margin-bottom: 24px;
+}
+.mm-logo span { color: var(--gold); }
+
+.mobile-menu a {
+  font-size: 1.1rem;
+  color: var(--nav-link);
+  text-decoration: none;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 300;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover,
+.mobile-menu a.gold { color: var(--gold); }
+.mobile-menu .nav-login {
+  font-size: 1.1rem;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+}
+.mobile-menu .gold {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  color: var(--nav-link);
+  text-decoration: none;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.mobile-menu .gold:hover { color: var(--gold); }
+
+.mobile-menu .theme-toggle {
+  width: 100%;
+  justify-content: space-between;
+  margin: 6px 0 2px;
+  padding: 14px 0;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  background: none;
+}
+
+.mobile-menu .theme-toggle:hover {
+  background: none;
+  border-color: var(--border);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navbar { padding: 14px 20px; }
+  .nav-links,
+  .nav-actions { display: none; }
+  .hamburger { display: flex; }
+}
